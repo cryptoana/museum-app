@@ -11,10 +11,19 @@ function submitComment () {
     const p = document.createElement('p');
 
 //adjust the elements you created
-    h3.innerHTML = "`${name} said:`";
-    p.innerHTML = "msg";
+    h3.innerHTML = `${name} said:`;
+    p.innerHTML = msg;
     comment.classList.add('comment');
     comment.appendChild(h3);
     comment.appendChild(p);
     console.log(comment);
+
+//display the elements on the page
+    const commentSection = document.getElementById('comments');
+    commentSection.appendChild(comment);
+
+//reset form values
+    inputField.value = null;
+    textArea.value = null;
+
 }
