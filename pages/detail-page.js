@@ -10,6 +10,10 @@ function submitComment () {
     const h3 = document.createElement('h3');
     const p = document.createElement('p');
 
+    if(doesNotPassAllValidations(name, msg)){
+        return null;
+    }
+
 //adjust the elements you created
     h3.innerHTML = `${name} said:`;
     p.innerHTML = msg;
@@ -26,4 +30,22 @@ function submitComment () {
     inputField.value = null;
     textArea.value = null;
 
+    console.log(name);
+    console.log(msg)
+
+    
+}
+
+function doesNotPassAllValidations(name, msg) {
+    if (!name || !msg) {
+        alert('You forgot to fill in your name or message!');
+        return true;
+    } 
+
+    if (msg.length > 280) {
+        alert('Your comment is too long!');
+        return true;
+    }
+
+    console.log(msg.length);
 }
